@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - DivineCare Cosmetics</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+    
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky-nav" aria-label="Main Navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <h1>Our Products</h1>
+        <!-- Image Carousel -->
+        <div class="carousel-container" aria-label="Image Carousel">
+            <div class="carousel" id="carousel">
+                <img src="cien men invisible.jpeg" alt="Cien Men Invisible - Lightweight and effective deodorant">
+                <img src="sanex_dermo_sensitive.jpeg" alt="Sanex Dermo Sensitive - Gentle on sensitive skin">
+                <img src="cien men show gel.jpeg" alt="Cien Men Shower Gel - Refreshing and invigorating">
+            </div>
+            <button class="prev" onclick="moveSlide(-1)" aria-label="Previous Slide">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)" aria-label="Next Slide">&#10095;</button>
+        </div>
+        <div class="product-list">
+            <div class="product">
+                <img src="cien men invisible.jpeg" alt="Cien Men Invisible">
+                <p>Cien Men Shower Gel - UGX 11,000</p>
+            </div>
+            <div class="product">
+                <img src="cien men show gel.jpeg" alt="Cien Men Shower Gel">
+                <p>Cien Men Invisible - UGX 10,000</p>
+            </div>
+            <div class="product">
+                <img src="cien_men_body_sprays.jpeg" alt="Cien Men Body Spray">
+                <p>Cien Men Body Spray - UGX 15,000</p>
+            </div>
+            <div class="product">
+                <img src="Nivea Men.jpeg" alt="Nivea Men">
+                <p>Nivea Men - UGX 12,000</p>
+            </div>
+            <div class="product">
+                <img src="sanex_ph_balance.jpeg" alt="Sanex Ph Balance">
+                <p>Sanex Ph Balance - UGX 9,000</p>
+            </div>
+            <div class="product">
+                <img src="sanex_dermo_sensitive.jpeg" alt="Sanex Dermo Sensitive">
+                <p>Sanex Dermo Sensitive - UGX 10,000</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Embedded Google Map -->
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?..." allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sticky-footer">
+        <p>&copy; 2025 DivineCare Cosmetics | All Rights Reserved</p>
+        <p>Contact us at: <a href="mailto:info@divinecarecosmetics.com">info@divinecarecosmetics.com</a></p>
+    </footer>
+    <!-- JavaScript for Carousel -->
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(step) {
+            const carousel = document.getElementById("carousel");
+            const images = carousel.getElementsByTagName("img");
+            const totalImages = images.length;
+
+            // Update the current index
+            currentIndex = (currentIndex + step + totalImages) % totalImages;
+
+            // Calculate the offset for the slide
+            const offset = -currentIndex * 100;
+
+            // Apply the transform to the carousel
+            carousel.style.transform = `translateX(${offset}%)`;
+            carousel.style.transition = "transform 0.5s ease-in-out";
+        }
+
+        // Optional: Autoplay the carousel
+        setInterval(() => moveSlide(1), 3000); // Slide every 3 seconds
+    </script>
+   
+</body>
+</html>
